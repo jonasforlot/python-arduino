@@ -27,7 +27,7 @@ R= 1000.0 # valeur de résistance connue pour mesure de l'intensité
 
 U_alim = 0.0
 courant_A =0.0
-lines = ['I(mA)\tU(V)\n']
+lines = ['I(A)\tU(V)\n']
 
 
 
@@ -59,7 +59,7 @@ def animate(i):
     while  len (U)<10 :
         if len(listeDonnees)!=0: # extraction des données (valeurs d'intensité et tension)
             tension = float(listeDonnees[2].decode())
-            courant = float(listeDonnees[5].decode())
+            courant = (float(listeDonnees[5].decode()))/1000 # conversion en A
             U.append(tension)
             print("U = %f"%(tension))
             I.append(courant)
@@ -81,9 +81,9 @@ I=[]
 #
 fig=plt.figure()
 line0, = plt.plot([],[])
-plt.xlim(0, 5)
+plt.xlim(0, 0.005)
 plt.ylim(0,5)
-plt.xlabel("I en mA")
+plt.xlabel("I en A")
 plt.ylabel("U en V")
 
 #Animation
@@ -92,7 +92,6 @@ ani = animation.FuncAnimation(fig, animate,  frames=21,  interval=20,repeat=Fals
 plt.show()
 Data.close()
 
-I= [elt/1000 for elt in I] # conversion de I en A (liste modifiée)
 
 eq = stats.linregress (I,U) # pour faire la régression linéaire
 
@@ -111,7 +110,7 @@ print (texte)
 plt.title('U=f(I)') # titre du graphique
 plt.scatter(I,U, color ='r', marker = 'o') # On affiche les points de coordonnées (I,U) avec des points rouges
 plt.plot(Xcalc,Ycalc,color = 'b',label = texte) # Affichage de la courbe modélisée en bleu
-plt.xlabel('I en mA')       # nommer l'axe des abscisses
+plt.xlabel('I en A')       # nommer l'axe des abscisses
 plt.ylabel('U en V')       # nommer l'axe des ordonnéees
 plt.xlim (min(I),max(I))  #limtes pour les axes avec les valeurs extrêmes de I et de U
 plt.ylim(min(U),max(U))
