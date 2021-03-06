@@ -59,9 +59,9 @@ while  len (U)<10 :
         tension = float(listeDonnees[2].decode())
         courant = (float(listeDonnees[5].decode()))/1000 # conversion en A
         U.append(tension)
-        print("U = %f"%(tension))
+        print("U = %f V"%(tension))
         I.append(courant)
-        print("I = %f"%(courant))
+        print("I = %f A"%(courant))
         
     
 
