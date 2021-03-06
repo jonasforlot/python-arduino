@@ -25,7 +25,7 @@ import serial.tools.list_ports
 #initialisation des listes
 U=[]
 I=[]
-lines = ['I(mA)\tU(V)\n']
+lines = ['I(A)\tU(V)\n']
 
 
 
@@ -57,7 +57,7 @@ while  len (U)<10 :
 
     if len(listeDonnees)!=0: # extraction des données (valeurs d'intensité et tension)
         tension = float(listeDonnees[2].decode())
-        courant = float(listeDonnees[5].decode())
+        courant = (float(listeDonnees[5].decode()))/1000 # conversion an A
         U.append(tension)
         print("U = %f"%(tension))
         I.append(courant)
@@ -68,11 +68,10 @@ while  len (U)<10 :
 
 Data.close()
 
-I= [elt/1000 for elt in I] # conversion de I en A (liste modifiée)
 
 eq = stats.linregress (I,U) # pour faire la régression linéaire
 
-pente = eq[0] # pente
+pente = eq[0] # 
 ordorig = eq[1] # ordonnée à l'origine
 coeff2 = eq[2]**2 # coefficient de corrélation au carré r²
 
@@ -88,8 +87,8 @@ print (texte)
 plt.title('U=f(I)') # titre du graphique
 plt.scatter(I,U, color ='r', marker = 'o') # On affiche les points de coordonnées (I,U) avec des points rouges
 plt.plot(Xcalc,Ycalc,color = 'b',label = texte) # Affichage de la courbe modélisée en bleu
-plt.xlabel('I')       # nommer l'axe des abscisses
-plt.ylabel('U')       # nommer l'axe des ordonnéees
+plt.xlabel('I en A')       # nommer l'axe des abscisses
+plt.ylabel('U en V')       # nommer l'axe des ordonnéees
 plt.xlim (min(I),max(I))  #limtes pour les axes avec les valeurs extrêmes de I et de U
 plt.ylim(min(U),max(U))
 plt.legend()   # pour afficher les légendes (label)
