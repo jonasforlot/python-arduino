@@ -83,8 +83,8 @@ fig=plt.figure()
 line0, = plt.plot([],[])
 plt.xlim(0, 5)
 plt.ylim(0,5)
-plt.xlabel("I")
-plt.ylabel("U")
+plt.xlabel("I en mA")
+plt.ylabel("U en V")
 
 #Animation
 ani = animation.FuncAnimation(fig, animate,  frames=21,  interval=20,repeat=False)
@@ -92,7 +92,7 @@ ani = animation.FuncAnimation(fig, animate,  frames=21,  interval=20,repeat=Fals
 plt.show()
 Data.close()
 
-
+I= [elt/1000 for elt in I] # conversion de I en A (liste modifiée)
 
 eq = stats.linregress (I,U) # pour faire la régression linéaire
 
@@ -111,8 +111,8 @@ print (texte)
 plt.title('U=f(I)') # titre du graphique
 plt.scatter(I,U, color ='r', marker = 'o') # On affiche les points de coordonnées (I,U) avec des points rouges
 plt.plot(Xcalc,Ycalc,color = 'b',label = texte) # Affichage de la courbe modélisée en bleu
-plt.xlabel('I')       # nommer l'axe des abscisses
-plt.ylabel('U')       # nommer l'axe des ordonnéees
+plt.xlabel('I en mA')       # nommer l'axe des abscisses
+plt.ylabel('U en V')       # nommer l'axe des ordonnéees
 plt.xlim (min(I),max(I))  #limtes pour les axes avec les valeurs extrêmes de I et de U
 plt.ylim(min(U),max(U))
 plt.legend()   # pour afficher les légendes (label)
