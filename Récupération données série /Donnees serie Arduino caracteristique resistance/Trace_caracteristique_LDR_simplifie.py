@@ -68,7 +68,7 @@ while  len (U)<10 :
 
 Data.close()
 
-
+I= [elt/1000 for elt in I] # conversion de I en A (liste modifiée)
 
 eq = stats.linregress (I,U) # pour faire la régression linéaire
 
