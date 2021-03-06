@@ -57,7 +57,7 @@ while  len (U)<10 :
 
     if len(listeDonnees)!=0: # extraction des données (valeurs d'intensité et tension)
         tension = float(listeDonnees[2].decode())
-        courant = (float(listeDonnees[5].decode()))/1000 # conversion an A
+        courant = (float(listeDonnees[5].decode()))/1000 # conversion en A
         U.append(tension)
         print("U = %f"%(tension))
         I.append(courant)
