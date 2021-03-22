@@ -32,7 +32,7 @@ print ("Test de lecture pour 20 lignes de données")
 
 compt = 0
 try : 
-    for i in range(20) :     
+    for i in range(10) :     
         line1 = Data.readline() 
          # on retire les caractères d'espacement en début et fin de chaîne
         listeDonnees = line1.strip()
@@ -45,16 +45,15 @@ try :
             print ("Ligne vide")
             compt += 1
             
-    print (compt)
     if compt != 0 :
-        print (compt, " lignes sur ",20," sont vides")
+        print (compt, " lignes sur ",10," sont vides")
             
 except AttributeError :
     print ("Pas de données reçues")
 
 
 try : 
-    line1 = Data.readline() # on laisse passer la première ligne qui peut être incomplète
+    # line1 = Data.readline() # on laisse passer la première ligne qui peut être incomplète
     while True :
         line1 = Data.readline() 
          # on retire les caractères d'espacement en début et fin de chaîne
@@ -70,7 +69,7 @@ try :
 except AttributeError :
     print ("Pas de données reçues")
 
-    
+
 Data.close()
 
 
