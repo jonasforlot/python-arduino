@@ -19,27 +19,40 @@ def recup_port_Arduino() :
                 print ("Pas de carte Arduino détectée")
     else :
         print ("Pas de port actif")
+
+         
+
+            
    
 
 Data =recup_port_Arduino() #récupération des données
 try : 
     line1 = Data.readline() # on laisse passer la première ligne qui peut être incomplète
     while True :
-
         line1 = Data.readline() 
          # on retire les caractères d'espacement en début et fin de chaîne
         listeDonnees = line1.strip()
         # on sépare les informations reçues séparées par les espaces et on stocke ces informations dans une liste pour chacune de lignes
         listeDonnees = line1.split()
-        if len (listeDonnees) != 0 :
-            print ("Les données pour une ligne sont :")
+        if len (listeDonnees) == 0 :
+            print ("Des lignes de données sont vides.")
+            pass
+        else :
+            print ("Ligne de donnnées reçue : ",line1)
+            print ("Séparation des "+str(len(listeDonnees))+" données de la ligne reçue:")
             for k in range(len(listeDonnees)) :
-                print("Indice "+str(k)+" : "+str(listeDonnees[k].decode()))
+                print("Indice ",k," : ",listeDonnees[k].decode())
+                Data.close()
             break
 except AttributeError :
     print ("Pas de données reçues")
 
-Data.close()
+
+
+
+
+
+
 
 
 
