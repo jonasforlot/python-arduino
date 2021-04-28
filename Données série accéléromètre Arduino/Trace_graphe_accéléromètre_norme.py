@@ -31,7 +31,7 @@ def animate(i):
         accelx = (float(listeDonnees[5].decode()))/16834 # après consulation des données, nous choisissons le 6 ème élément de listeDonnees, on convertit l'accélération en g
         accely = (float(listeDonnees[8].decode()))/16834 # après consulation des données, nous choisissons le 6 ème élément de listeDonnees, on convertit l'accélération en g
         accelz = (float(listeDonnees[11].decode()))/16834 # après consulation des données, nous choisissons le 6 ème élément de listeDonnees, on convertit l'accélération en g
-        accel =np.sqrt(accelx**2+accely**2 +accelz**2)
+        accel =np.sqrt(accelx**2+accely**2 +accelz**2) # calcul de la norme
         temps = (float(listeDonnees[2].decode()))/1000.0 # après consulation des données, nous choisissons le 1er élément de listeDonnees
 
         while temps <= t_acquisition:
@@ -99,7 +99,7 @@ t = np.array(liste_t)
 acc = np.array(liste_a) 
 
 
-# Fonction d'estimation dee la fréquence
+# Fonction d'estimation de la fréquence
 def estim_freq(y) : 
     compt = 0
     moy = np.mean(y)
