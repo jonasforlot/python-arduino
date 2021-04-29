@@ -40,15 +40,15 @@ def get_p0(x, y):
 def f(x,a,b,c,d):
 	return (a*np.sin(2.*np.pi*b*x+c)+d)
 # 
-# pop,pcov = curve_fit (f,t,acc)
-pop,pcov = curve_fit (f,t,acc,p0=get_p0(t,acc))
+# popt,pcov = curve_fit (f,t,acc)
+popt,pcov = curve_fit (f,t,acc,p0=get_p0(t,acc))
 
-texte = 'Accélération = '+str(round(float(pop[0]),2))+' sin (2pi*'+str(round(float(pop[1]),2))+'*t+'+str(round(float(pop[2]),2))+') + '+str(round(float(pop[3]),2))+'\n' +'A = '+str(round(float(pop[0]),2))+'; f = '+str(round(float(pop[1]),2))+' ; phase ='+str(round(float(pop[2]),2))+' ; offset = '+str(round(float(pop[3]),2))
+texte = 'Accélération = '+str(round(float(popt[0]),2))+' sin (2pi*'+str(round(float(popt[1]),2))+'*t+'+str(round(float(popt[2]),2))+') + '+str(round(float(popt[3]),2))+'\n' +'A = '+str(round(float(popt[0]),2))+'; f = '+str(round(float(popt[1]),2))+' ; phase ='+str(round(float(popt[2]),2))+' ; offset = '+str(round(float(popt[3]),2))
 
 # afficher points avec croix rouges. Inserer texte (titre, nom des axes,…)
 plt.figure(1)
 plt.plot(t, acc, c = 'red', marker = '+')
-plt.plot(t,f(t,*pop),'g--',label = texte)
+plt.plot(t,f(t,*popt),'g--',label = texte)
 plt.xlabel("t en s")
 plt.ylabel("a en g")
 plt.legend()   # pour afficher les légendes (label)
