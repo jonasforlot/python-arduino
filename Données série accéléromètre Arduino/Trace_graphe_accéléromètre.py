@@ -9,7 +9,7 @@ from scipy.optimize import curve_fit
 
 liste_a = [] # liste pour stocker les valeurs de distance
 liste_t = []
-t_acquisition = 7.0 # en s
+t_acquisition = 10.0 # en s
 amax =2 # en g
 amin= -2 # en g
 
