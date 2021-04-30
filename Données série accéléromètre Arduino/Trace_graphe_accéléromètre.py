@@ -90,7 +90,7 @@ for i in range (len (liste_a)):
     line = str(liste_t[i]) +'\t'+ str(liste_a[i])+'\n'
     lines.append(line)
 
-fichier = open('p:\Mes documents\essais Python\Améliorations\Accéléromètre\Données série accéléromètre Arduino\data_accelerometre.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('data_accelerometre.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
 
 
 
