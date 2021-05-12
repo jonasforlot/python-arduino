@@ -94,5 +94,5 @@ for i in range (len (liste_rps)):
     line = str(liste_temps[i]) +'\t'+ str(liste_rps[i])+'\n'
     lines.append(line)
 
-fichier = open('p:\Mes documents\essais Python\Mesure vitesse\data_arduino.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('data_arduino.txt', 'w').writelines(lines) #création d'un nouveau fichier texte, indiquer le chemin si nécessaire
 
