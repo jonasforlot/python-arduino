@@ -8,7 +8,7 @@ import time # gestion du temps
 #initialisation des listes
 
 liste_temps=[] # liste pour stocker les valeurs de temps en partant de t=0
-liste_rps = [] # liste pour stocker les valeurs de distance
+liste_rps = [] # liste pour stocker les valeurs de vitesse
 
 t_acquisition = 10.0
 rpsmax= 150 # en mm
