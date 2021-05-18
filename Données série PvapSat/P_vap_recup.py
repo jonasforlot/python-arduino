@@ -26,16 +26,16 @@ ax2.set_ylabel('Pression en Pa')
 ax2.axis([0,500,0.0,120000])
 
 ax1.set_title('température=f(t)') # titre du graphique
-ax1.scatter(liste_temps,liste_T, color ='r', marker = 'o') # On affiche les points de coordonnées (I,U) avec des points rouges
+ax1.scatter(liste_temps,liste_T, color ='r', marker = 'o') # On affiche les points de coordonnées (t,T) avec des points rouges
 ax1.set_xlabel('temps en s')
 ax1.set_ylabel('température en °C')
-ax1.axis([min(liste_temps),max(liste_temps),min(liste_T),max(liste_T)])  #limtes pour les axes avec les valeurs extrêmes de temps et de température
+ax1.axis([min(liste_temps),max(liste_temps),min(liste_T),max(liste_T)])   #limites pour les axes avec les valeurs extrêmes de temps et de température
 
 ax2.set_title('pression=f(t)') # titre du graphique
-ax2.scatter(liste_temps,liste_P, color ='r', marker = 'o') # On affiche les points de coordonnées (I,U) avec des points rouges
+ax2.scatter(liste_temps,liste_P, color ='b', marker = 'o') # On affiche les points de coordonnées (t,P) avec des points bleus
 ax2.set_xlabel('temps en s')
 ax2.set_ylabel('Pression en Pa')
-ax2.axis([min(liste_temps),max(liste_temps),min(liste_P),max(liste_P)])  #limtes pour les axes avec les valeurs extrêmes de temps et de température
-plt.show()  #afficher le
+ax2.axis([min(liste_temps),max(liste_temps),min(liste_P),max(liste_P)])  #limites pour les axes avec les valeurs extrêmes de temps et de pression
+plt.show()  #afficher le graphique (ne rien mettre dans la parenthèse)
 
 
