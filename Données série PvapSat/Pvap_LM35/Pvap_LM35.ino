@@ -1,8 +1,6 @@
-// Programme d'utilisation du capteur de température Eurosmart Elab_Temp.
+// Programme pour mesures température et pression
 // Ce capteur mesure la température de -40 à 200 °C
-// Le capteur utilise 2 broches analogiques de la carte EDUCA DUINO Lab pour les mesures de tension et de courant.
-// Les mesures effectuées sont transmises via la laison série.
-// Elles peuvent être visualisées par le terminal intégré d'Arduino par le menu [Outil][Moniteur Série]
+// On utilise un capteur de pression Eurosmart et un capteur de température LM35 
 
 //Définition des broches analogiques utilisées par le capteur.
 #define _NUMER0_BROCHE_ANALOGIQUE_LM35 A0 //Broche analogique utilisée par le capteur pour la mesure du courant. (Dépend de la localisation du capteur sur la carte EDUCA DUINO Lab).
@@ -55,7 +53,7 @@ void setup() {
 
 
 //==================================================================================================
-// Converti la valeur de tension en une valeur de pression.
+// Convertit la valeur de tension en une valeur de pression.
 // On mesure une tension de 0V pour une pression de  200hPa.
 // On mesure une tension de 5V pour une pression de 4000hPa.  
 //==================================================================================================
