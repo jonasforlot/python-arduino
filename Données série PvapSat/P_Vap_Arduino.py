@@ -9,7 +9,7 @@ import time # gestion du temps
 
 liste_temps=[] # liste pour stocker les valeurs de temps en partant de t=0
 liste_T = [] # liste pour stocker les valeurs de température
-liste_P = [] # liste pour stocker les valeurs de température
+liste_P = [] # liste pour stocker les valeurs de pression
 
 t_acquisition = 1000.0
 Tmax= 110.0 # en °C
@@ -35,21 +35,15 @@ def animate(i):
 
         while temps <= t_acquisition:
             liste_T.append(temp)
-            print("Température = %f"%(temp)) # affichage de la valeur de la distance
+            print("Température = %f"%(temp)) # affichage de la valeur de la température
             liste_temps.append(temps)
             print("temps mesuré = %f"%(temps), " s") # affichage de la valeur du temps absolu
             liste_P.append(pression)
-            print("Pression = %f"%(pression)) # affichage de la valeur de la distance
+            print("Pression = %f"%(pression)) # affichage de la valeur de la pression
             line0.set_data(liste_temps,liste_T)
             line1.set_data(liste_temps,liste_P)
 
             return line0,line1,
-
-
-
-
-
-
 
 # Fonction pour la récupération des données série venant de la carte Arduino
 def recup_port_Arduino() :
@@ -80,8 +74,6 @@ ax2.set_ylabel('Pression en Pa')
 ax2.axis([0,t_acquisition,0.0,Pmax])
 
 
-
-
 #Animation
 ani = animation.FuncAnimation(fig, animate, frames=2000,  interval=20,repeat=False)
 
@@ -92,26 +84,17 @@ Data.close() # pour arrêter la lecture des données série
 
 
 fig,(ax1,ax2) = plt.subplots(2,figsize=(10,10))
-line0, = ax1.plot([],[])
-line1, = ax2.plot([],[])
-ax1.set_xlabel('temps en s')
-ax1.set_ylabel('température en °C')
-ax1.axis([0,t_acquisition,0,Tmax])
-ax2.set_xlabel('temps en s')
-ax2.set_ylabel('Pression en Pa')
-ax2.axis([0,t_acquisition,0.0,Pmax])
-
 ax1.set_title('température=f(t)') # titre du graphique
-ax1.scatter(liste_temps,liste_T, color ='r', marker = 'o') # On affiche les points de coordonnées (I,U) avec des points rouges
+ax1.scatter(liste_temps,liste_T, color ='r', marker = 'o') # On affiche les points de coordonnées (t,T) avec des points rouges
 ax1.set_xlabel('temps en s')
 ax1.set_ylabel('température en °C')
-ax1.axis([min(liste_temps),max(liste_temps),min(liste_T),max(liste_T)])  #limtes pour les axes avec les valeurs extrêmes de temps et de température
+ax1.axis([min(liste_temps),max(liste_temps),min(liste_T),max(liste_T)])  #limites pour les axes avec les valeurs extrêmes de temps et de température
 
 ax2.set_title('pression=f(t)') # titre du graphique
-ax2.scatter(liste_temps,liste_P, color ='r', marker = 'o') # On affiche les points de coordonnées (I,U) avec des points rouges
+ax2.scatter(liste_temps,liste_P, color ='b', marker = 'o') # On affiche les points de coordonnées (t,P) avec des points bleus
 ax2.set_xlabel('temps en s')
 ax2.set_ylabel('Pression en Pa')
-ax2.axis([min(liste_temps),max(liste_temps),min(liste_P),max(liste_P)])  #limtes pour les axes avec les valeurs extrêmes de temps et de température
+ax2.axis([min(liste_temps),max(liste_temps),min(liste_P),max(liste_P)])  #limites pour les axes avec les valeurs extrêmes de temps et de pression
 plt.show()  #afficher le graphique (ne rien mettre dans la parenthèse)
 
 #Ecriture dans un fichier txt
@@ -120,5 +103,5 @@ for i in range (len (liste_T)):
     line = str(liste_temps[i]) +'\t'+ str(liste_T[i])+'\t'+ str(liste_P[i])+'\n'
     lines.append(line)
 
-fichier = open('P:\Mes documents\essais Python\Améliorations\Données série PvapSat\data_arduinobis.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('P:\Mes documents\essais Python\Améliorations\Données série PvapSat\data_arduino.txt', 'w').writelines(lines) #création d'un nouveau fichier texte,indiquer le bon chemin
 
