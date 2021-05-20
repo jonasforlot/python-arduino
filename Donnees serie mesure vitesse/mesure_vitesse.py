@@ -32,7 +32,7 @@ def animate(i):
 
         while temps <= t_acquisition:
             liste_rps.append(rps)
-            print("rps = %f"%(rps)) # affichage de la valeur de la distance
+            print("rps = %f"%(rps)) # affichage de la valeur de la vitesse
             liste_temps.append(temps)
             print("temps mesuré = %f"%(temps), " s") # affichage de la valeur du temps absolu
             line.set_data(liste_temps,liste_rps)
@@ -81,10 +81,10 @@ Data.close() # pour arrêter la lecture des données série
 
 
 plt.title('rps=f(t)') # titre du graphique
-plt.scatter(liste_temps,liste_rps, color ='r', marker = 'o') # On affiche les points de coordonnées (I,U) avec des points rouges
+plt.scatter(liste_temps,liste_rps, color ='r', marker = 'o') # On affiche les points de coordonnées (t,rps) avec des points rouges
 plt.xlabel('temps en s')
 plt.ylabel('rps')
-plt.xlim (min(liste_temps),max(liste_temps))  #limtes pour les axes avec les valeurs extrêmes de I et de U
+plt.xlim (min(liste_temps),max(liste_temps))  #limtes pour les axes avec les valeurs extrêmes de t et de rps
 plt.ylim(min(liste_rps),max(liste_rps))
 plt.show()  #afficher le graphique (ne rien mettre dans la parenthèse)
 
