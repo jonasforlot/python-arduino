@@ -7,7 +7,7 @@ from matplotlib import animation # pour la figure animée
 import numpy as np # numpy pour l'importation des donnees en format txt
 from scipy.optimize import curve_fit
 
-liste_a = [] # liste pour stocker les valeurs de distance
+liste_a = [] # liste pour stocker les valeurs d'acceleration
 liste_t = []
 t_acquisition = 10.0 # en s
 amax =2 # en g
@@ -35,7 +35,7 @@ def animate(i):
 
         while temps <= t_acquisition:
             liste_a.append(accel)
-            print("a = %f"%(accel), " g") # affichage de la valeur de la distance
+            print("a = %f"%(accel), " g") # affichage de la valeur de l'acceleration
             liste_t.append(temps)
             print("temps = %f"%(temps), " s") # affichage de la valeur du temps en partant de 0
             line.set_data(liste_t,liste_a)
