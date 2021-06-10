@@ -26,6 +26,6 @@
       accelgyro.getAcceleration(&ax, &ay, &az);
       Serial.print(temps); 
       Serial.print("\t");
-      Serial.println(az);  
+      Serial.println(ax);  
       
     }
