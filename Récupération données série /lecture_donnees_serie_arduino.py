@@ -11,7 +11,8 @@ def recup_port_Arduino() :
     if len(ports) != 0 :
         print (ports)
         for p in ports:
-            if 'Arduino' in p.description :
+            print (p.description)
+            if 'Arduino' in p.description or  'CDC'in p.description or 'USB' in p.description :
                 mData = serial.Serial(p.device,9600)
                 print("la carte Arduino est connectée sur le port "+str(mData.name)) # Affiche et vérifie que le port est ouvert
                 return mData
