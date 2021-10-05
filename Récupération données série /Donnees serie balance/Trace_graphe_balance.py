@@ -17,7 +17,7 @@ Massemax= 200
 
 #pour le graphe en temps réel
 def animate(i):
-    line1 = mData.readline()
+    line1 = Data.readline()
     print (line1)
     # on retire les caractères d'espacement en début et fin de chaîne
     listeDonnees = line1.strip()
@@ -52,17 +52,17 @@ def recup_port_USB() :
     for p in ports:
         print (p)
         if 'USB' in p.description :
-            Data = serial.Serial(p.device,9600)
+            mData = serial.Serial(p.device,9600)
     print(mData.is_open) # Affiche et vérifie que le port est ouvert
     print(mData.name) # Affiche le nom du port 
-    return Data
+    return mData
 
 
 
 
 
 
-mData =recup_port_USB() #récupération des données
+Data =recup_port_USB() #récupération des données
 
 # Création figure
 fig=plt.figure()
@@ -76,7 +76,7 @@ plt.grid()
 ani = animation.FuncAnimation(fig, animate, frames=200,  interval=20,repeat=False)
 
 plt.show()
-mData.close()
+Data.close()
 plt.close(fig)
 
 #Ecriture dans un fichier txt
