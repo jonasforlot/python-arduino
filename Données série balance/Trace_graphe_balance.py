@@ -11,12 +11,15 @@ liste_temps_mesure =[] # liste pour stocker le temps"brut"
 liste_temps=[] # liste pour stocker les valeurs de temps en partant de t=0
 liste_masse = [] # liste pour stocker les valeurs de masse
 
-t_acquisition = 5.0
+t_acquisition = 50.0
 Massemax= 200
 
+#Ecriture dans un fichier txt
+lines=['t\tm\n'] #première ligne du fichier txt
 
 #pour le graphe en temps réel
 def animate(i):
+    global sys,line0,line1
     line1 = Data.readline()
     print (line1)
     # on retire les caractères d'espacement en début et fin de chaîne
@@ -38,8 +41,11 @@ def animate(i):
             liste_temps.append(tempsreel)
             print("temps mesuré = %f"%(tempsmes), " s") # affichage de la valeur du temps absolu
             print("temps réel= %f"%(tempsreel), " s") # affichage de la valeur du temps en partant de 0
-            line.set_data(liste_temps,liste_masse)
-            return line,
+            line0.set_data(liste_temps,liste_masse)
+            line = str(liste_temps[-1]) +'\t'+ str(liste_masse[-1])+'\n'
+            lines.append(line)
+            fichier = open('U:\Documents\essais Python\Améliorations\Données série balance\data_balance.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+            return line0,
 
 
 
@@ -66,23 +72,19 @@ Data =recup_port_USB() #récupération des données
 
 # Création figure
 fig=plt.figure()
-line, = plt.plot([],[])
+line0, = plt.plot([],[])
 plt.xlim(0, t_acquisition)
 plt.ylim(0,Massemax)
 plt.grid()
 
 
 #Animation
-ani = animation.FuncAnimation(fig, animate, frames=200,  interval=20,repeat=False)
+ani = animation.FuncAnimation(fig, animate, frames=20000,  interval=20,repeat=False)
 
 plt.show()
 Data.close()
 plt.close(fig)
 
-#Ecriture dans un fichier txt
-lines=['t\tm\n'] #première ligne du fichier txt
-for i in range (len (liste_masse)):
-    line = str(liste_temps[i]) +'\t'+ str(liste_masse[i])+'\n'
-    lines.append(line)
 
-fichier = open('data_balance.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+
+
