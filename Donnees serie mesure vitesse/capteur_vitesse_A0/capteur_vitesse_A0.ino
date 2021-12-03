@@ -14,7 +14,7 @@ long temps; //mesure du temps pour l'acquisition
 void setup() 
 {
   
-  pinMode(sensor,INPUT); // la broche 3 est déclarée comme entrée
+  pinMode(sensor,INPUT); // la broche A0 est déclarée comme entrée
   Serial.begin(9600); // pour le moniteur série
   temps = millis(); // mesure du temps 
 }  
