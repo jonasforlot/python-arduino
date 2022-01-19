@@ -17,6 +17,7 @@ tensionmax= 5 # en V
 #pour le graphe en temps réel
 def animate(i):
     line1 = Data.readline()
+    line1 = Data.readline()
     print (line1)
     # on retire les caractères d'espacement en début et fin de chaîne
     listeDonnees = line1.strip()
