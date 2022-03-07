@@ -1,6 +1,6 @@
 """"
 Détermination de la valeur de la capacité d'un condensateur à partir de la constante de temps d'un circuit RC, avec étude statistique
-Ce script a été écrit par Cristophe BELLESSORT (académie de Normandie)
+Ce script a été écrit par Christophe BELLESSORT (académie de Normandie)
 Mme Marie-Anne DEJOAN (académie de Guyane) a apporté quelques modifications
 Le programme effectue N mesures successives de la capacité d'un condensateur, et propose ensuite une étude statistique.
 
