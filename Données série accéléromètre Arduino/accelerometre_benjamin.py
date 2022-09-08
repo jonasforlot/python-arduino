@@ -154,4 +154,5 @@ for i in range (len (liste_t)):
     line = str(liste_t[i]) +'\t'+ str(liste_a[i])+'\t'+ str(liste_tension[i])+'\n'
     lines.append(line)
 
-fichier = open('data_accelerometre.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('data_accelerometre.txt', 'w')
+fichier.writelines(lines) #création d'un nouveau fichier texte
