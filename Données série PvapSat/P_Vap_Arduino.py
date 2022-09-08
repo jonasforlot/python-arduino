@@ -103,5 +103,6 @@ for i in range (len (liste_T)):
     line = str(liste_temps[i]) +'\t'+ str(liste_T[i])+'\t'+ str(liste_P[i])+'\n'
     lines.append(line)
 
-fichier = open('P:\Mes documents\essais Python\Améliorations\Données série PvapSat\data_arduino.txt', 'w').writelines(lines) #création d'un nouveau fichier texte,indiquer le bon chemin
+fichier = open('P:\Mes documents\essais Python\Améliorations\Données série PvapSat\data_arduino.txt', 'w')
+fichier.writelines(lines) #création d'un nouveau fichier texte,indiquer le bon chemin
 
