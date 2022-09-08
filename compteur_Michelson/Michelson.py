@@ -124,5 +124,6 @@ for i in range (len (liste_tension)):
     line = str(liste_temps[i]) +'\t'+ str(liste_tension[i])+'\n'
     lines.append(line)
 
-fichier = open('U:\Documents\essais Python\Améliorations\Données série Michelson\data.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('U:\Documents\essais Python\Améliorations\Données série Michelson\data.txt', 'w')
+fichier.writelines(lines) #création d'un nouveau fichier texte
 
