@@ -86,7 +86,8 @@ def animate(i):
         line0.set_data(liste_temps,liste_force)
         line = str(liste_temps[-1]) +'\t'+ str(liste_force[-1])+'\n'
         lines.append(line)
-        fichier = open('U:\Documents\essais Python\Améliorations\Données série force\data_force.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+        fichier = open('U:\Documents\essais Python\Améliorations\Données série force\data_force.txt', 'w')
+        fichier.writelines(lines) #création d'un nouveau fichier texte
         return line0,
 
 
