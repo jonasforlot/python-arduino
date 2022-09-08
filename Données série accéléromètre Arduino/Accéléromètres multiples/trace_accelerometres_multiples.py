@@ -101,7 +101,8 @@ for i in range (len (liste_a1)):
     line = str(liste_t[i]) +'\t'+ str(liste_a1[i])+'\n'
     lines.append(line)
 
-fichier = open('data_accelerometre.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('data_accelerometre.txt', 'w')
+fichier.writelines(lines) #création d'un nouveau fichier texte
 
 
 
