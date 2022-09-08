@@ -66,4 +66,5 @@ for i in range (len (liste_distance)):
     line = str(liste_temps[i]) +'\t'+ str(liste_distance[i])+'\n'
     lines.append(line)
 
-fichier = open('data_arduino.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('data_arduino.txt', 'w')
+fichier.writelines(lines) #création d'un nouveau fichier texte
