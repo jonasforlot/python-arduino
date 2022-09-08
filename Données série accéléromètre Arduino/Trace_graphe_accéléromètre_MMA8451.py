@@ -121,7 +121,8 @@
      lines.append(line)
 
 
- fichier = open('data_accelerometre.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+ fichier = open('data_accelerometre.txt', 'w')
+ fichier.writelines(lines) #création d'un nouveau fichier texte
 
 
 
