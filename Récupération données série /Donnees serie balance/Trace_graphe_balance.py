@@ -85,5 +85,6 @@ for i in range (len (liste_masse)):
     line = str(liste_temps[i]) +'\t'+ str(liste_masse[i])+'\n'
     lines.append(line)
 
-fichier = open('data_balance.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('data_balance.txt', 'w')
+fichier.writelines(lines) #création d'un nouveau fichier texte
 
