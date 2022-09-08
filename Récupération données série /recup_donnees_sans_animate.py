@@ -108,4 +108,5 @@ for i in range (len (liste_tension)):
     line = str(liste_temps[i]) +'\t'+ str(liste_tension[i])+'\n'
     lines.append(line)
 
-fichier = open('/Users/jonasforlot/Documents/Python/Python Arduino/potard/recup_donnees_potard.py\data_arduino.txt', 'w').writelines(lines) #création d'un nouveau fichier texte, indiquer le chemin si nécessaire
+fichier = open('/Users/jonasforlot/Documents/Python/Python Arduino/potard/recup_donnees_potard.py\data_arduino.txt', 'w')
+fichier.writelines(lines) #création d'un nouveau fichier texte, indiquer le chemin si nécessaire
