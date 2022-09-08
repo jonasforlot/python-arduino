@@ -87,4 +87,5 @@ for i in range (len (liste_CO2)):
     line = str(liste_temps[i]) +'\t'+ str(liste_CO2[i])+'\n'
     lines.append(line)
 
-fichier = open('U:\Documents\essais Python\Améliorations\Données série capteur CO2\data_arduino.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+fichier = open('U:\Documents\essais Python\Améliorations\Données série capteur CO2\data_arduino.txt', 'w')
+fichier.writelines(lines) #création d'un nouveau fichier texte
