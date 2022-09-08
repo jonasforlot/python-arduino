@@ -116,4 +116,5 @@
      lines.append(line)
 
 
- fichier = open('U:\Documents\\data_arduino.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+ fichier = open('U:\Documents\\data_arduino.txt', 'w')
+ fichier.writelines(lines) #création d'un nouveau fichier texte
