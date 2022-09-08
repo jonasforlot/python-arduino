@@ -44,7 +44,8 @@ def animate(i):
             line0.set_data(liste_temps,liste_masse)
             line = str(liste_temps[-1]) +'\t'+ str(liste_masse[-1])+'\n'
             lines.append(line)
-            fichier = open('U:\Documents\essais Python\Améliorations\Données série balance\data_balance.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
+            fichier = open('U:\Documents\essais Python\Améliorations\Données série balance\data_balance.txt', 'w')
+            fichier.writelines(lines) #création d'un nouveau fichier texte
             return line0,
 
 
