@@ -129,7 +129,7 @@ void loop() {
   Serial.print(" Pression : ");         // Transmission de la chaine " Pression:"
   Serial.print(pression_Pa);          // Transmission de la pression absolue calculée.
   Serial.println(" Pa");  
-  Serial.println(tension_T_V);    
+   
 
    
  
