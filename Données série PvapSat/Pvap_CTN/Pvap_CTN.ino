@@ -9,7 +9,7 @@
 long temps;
 float R= 10000.0;
 //==================================================================================================
-// Converti la valeur numérique en une valeur de tension.
+// Convertit la valeur numérique en une valeur de tension.
 // Le Convertisseur Analogique Numérique converti la tension sur 10bits.  
 // Pour une tension de 0V la valeur numérique est 0.
 // Pour une tension de 5V la valeur numérique est 1023.  
@@ -31,7 +31,7 @@ const float _VALEUR_TENSION_MAX  = 5.0;
 
 
 //==================================================================================================
-// Converti la valeur de la résistance de la CTN en une valeur de temperature.
+// Convertit la valeur de la résistance de la CTN en une valeur de temperature.
 // S'inspire de la méthode de Steinhart.
 //==================================================================================================
 float ConvertiResistanceEnTemperature(float resistance)
@@ -64,7 +64,7 @@ void setup() {
 
 
 //==================================================================================================
-// Converti la valeur de tension en une valeur de pression.
+// Convertit la valeur de tension en une valeur de pression.
 // On mesure une tension de 0,2V pour une pression de  150hPa (un étalonnage du capteur montre que la tension de 0,2 V donnée par le constructeur pour 15 kPa peut varier légèrement ! On a choisi ici 0,27 )
 // On mesure une tension de 4,7V pour une pression de 7000hPa.  
 //==================================================================================================
