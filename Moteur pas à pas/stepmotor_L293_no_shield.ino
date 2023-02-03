@@ -23,8 +23,12 @@ void setup() {
 
 void loop(){
   sens_normal();
+  stop();
+  delay(100);
   sens_inverse();
+  delay(100);
   sens_inverse();
+  delay(100);
   
 
 
@@ -108,6 +112,13 @@ delay(Tps);
 
   }
   
+}
+
+void stop(){
+    digitalWrite(pinBobine1A, LOW);
+     digitalWrite(pinBobine1C, LOW);  
+     digitalWrite(pinBobine2B, LOW);
+     digitalWrite(pinBobine2D, LOW);
 }
 
   
