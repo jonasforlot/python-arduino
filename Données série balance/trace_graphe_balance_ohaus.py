@@ -1,3 +1,5 @@
+# Réglage balance : RS232 -> baud 9600, parity 8 no
+#                   Print ->  a.print continu, content-> numbers on
 #importation des modules
 import serial
 import serial.tools.list_ports # pour la communication avec le port série
@@ -44,7 +46,7 @@ def recup_port_USB() :
 def animate(i):
     global sys,line0,line1
     chaine = ''
-    for i in range (12) :
+    for i in range (13) :
         line1 = Data.read()
         print (line1)
 
@@ -75,8 +77,7 @@ def animate(i):
         line0.set_data(liste_temps,liste_masse)
         line = str(liste_temps[-1]) +'\t'+ str(liste_masse[-1])+'\n'
         lines.append(line)
-        fichier = open('U:\Documents\essais Python\Améliorations\\data_balance.txt', 'w')
-        fichier.writelines(lines) #création d'un nouveau fichier texte
+        fichier = open('U:\Documents\essais Python\Améliorations\\data_balance.txt', 'w').writelines(lines) #création d'un nouveau fichier texte
         return line0,
 
 
