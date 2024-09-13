@@ -51,18 +51,18 @@ long temps;
 void setup() {
   Serial.begin(9600);
   myLux.begin();
-  /* 
-   * The setMode and readMode functions can be omitted. When not configured, the default configuration is the one used last time.
-   * When using the setMode function, its return value should be judged. If the return value is 1, the setting is successful.
-   * while(!myLux.setMode(myLux.eManual,myLux.eCDR_0,myLux.eTime800ms));
-   * Serial.print("mode: ");
-   * Serial.println(myLux.readMode());
-  */
+  while(!myLux.setMode(myLux.eManual,myLux.eCDR_0,myLux.eTime25ms));
+//  * 
+//   * The setMode and readMode functions can be omitted. When not configured, the default configuration is the one used last time.
+//   * When using the setMode function, its return value should be judged. If the return value is 1, the setting is successful.
+   
+//   * Serial.print("mode: ");
+//   * Serial.println(myLux.readMode());
   
+  temps = millis();
 }
 
 void loop() {
-  temps = millis();
   Serial.print("t : ");
   Serial.print("\t");
   Serial.print(temps); 
