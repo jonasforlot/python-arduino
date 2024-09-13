@@ -6,14 +6,14 @@ import matplotlib.pyplot as plt  # pour le tracé de graphe
 from matplotlib import animation # pour la figure animée
 # import time # gestion du temps
 import numpy as np # numpy pour l'importation des donnees en format txt
-from scipy.optimize import curve_fit
+
 import os
 
 
 liste_e = [] # liste pour stocker les valeurs d'éclairement
 liste_t = []
 t_acquisition = 10.0 # en s
-emax =7000 # en lux
+emax =1000 # en lux
 emin= 0 # en lux
 
 
@@ -38,7 +38,7 @@ def animate(i):
 
 
     if len(listeDonnees) == 6 : # parfois des lignes de données vides peuvent être envoyées, il faut les "écarter"
-        eclairement = (float(listeDonnees[4].decode()))/16834 # après consulation des données, nous choisissons le 4 ème élément de listeDonnees, on convertit l'accélération en g
+        eclairement = (float(listeDonnees[4].decode())) # après consulation des données, nous choisissons le 4 ème élément de listeDonnees
 
 
         temps = (float(listeDonnees[2].decode()))/1000.0 # après consulation des données, nous choisissons le 2ème élément de listeDonnees
@@ -67,7 +67,7 @@ def animate(i):
 def recup_port_Arduino() :
     ports = list(serial.tools.list_ports.comports())
     for p in ports:
-        if 'Arduino' in p.description :
+        if 'Arduino' in p.description or  'CDC'in p.description or 'USB' in p.description :
             mData = serial.Serial(p.device,9600)
     print(mData.is_open) # Affiche et vérifie que le port est ouvert
     print(mData.name) # Affiche le nom du port
