@@ -59,10 +59,11 @@ void setup() {
 //   * Serial.print("mode: ");
 //   * Serial.println(myLux.readMode());
   
-  temps = millis();
+ 
 }
 
 void loop() {
+   temps = millis();
   Serial.print("t : ");
   Serial.print("\t");
   Serial.print(temps); 
