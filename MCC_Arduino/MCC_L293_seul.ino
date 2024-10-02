@@ -8,7 +8,6 @@ void setup() {
   pinMode(moteur1_PWM, OUTPUT); // Pin 3 Arduino en sortie PWM
   pinMode(Moteur_sens1, OUTPUT); // Pin 4 Arduino en sortie digitale
   pinMode(Moteur_sens2, OUTPUT); // Pin 5 Arduino en sortie digitale
-  delay( 1000 ); // Attendre 1 seconde avant le lancement de la fonction accélération
   
 }
 
