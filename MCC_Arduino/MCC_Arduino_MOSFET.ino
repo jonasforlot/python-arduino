@@ -11,7 +11,7 @@ void setup() {
 void loop() {
 
   // vitesse de rotation à 50 % (avec l'instruction analogWrite)
-    analogWrite(motorPin, LOW);
+    analogWrite(motorPin, 128);
   
  
 }
