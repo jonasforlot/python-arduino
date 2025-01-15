@@ -8,10 +8,14 @@ int etatSensor; // état du capteur (haut ou bas)
 long RangeInCentimeters;
 int valeur_bouton;
 int attente;
+int couleur; // 0 pour jaune et 1 pour bleu
 int periode = 20000; // période entre chaque début d'impulsion en microsecondes
 int pinServo = 0; // variable pour le pin connecté à la commande du servo
 bool state = false;
-bool etat_reglage = false;
+bool etat_reglage_temps = false;
+bool etat_reglage_couleur = false;
+
+
 
 Ultrasonic ultrasonic(16);
 
@@ -30,13 +34,23 @@ int PWM = 50; // Variable PWM image de la vitesse
 // SETUP //
 //*******//
 void setup() {
+
+  
   EEPROM.get(0,attente);
+  EEPROM.get(2,couleur);
+
+  if (attente <= 0 or attente > 85) {
+    attente = 85;
+  }
   valeur_bouton  = analogRead(A0);
   lcd.begin(16,2);
   if (valeur_bouton == 619 or valeur_bouton ==620) {
-    etat_reglage = true;
+    etat_reglage_temps = true;
+    if (attente <= 0 or attente > 85) {
+    attente = 85;
+    }
  
-    while (etat_reglage == true){
+    while (etat_reglage_temps == true){
       if ((valeur_bouton != 820 and valeur_bouton != 821 )) {
         lcd.setCursor(0,0);
         lcd.print("tps|Select");
@@ -69,10 +83,61 @@ void setup() {
     
       else{
          
-        etat_reglage = false;
+        etat_reglage_temps = false;
       }
     }
   }
+
+  if (valeur_bouton == 0 ) {
+    etat_reglage_couleur = true;
+ 
+    while (etat_reglage_couleur == true){
+      if ((valeur_bouton != 820 and valeur_bouton != 821 )) {
+        lcd.setCursor(0,0);
+        lcd.print("Coul|Select");
+        
+        lcd.setCursor(5,1);
+        lcd.print("|");
+        lcd.setCursor(6,1);
+        lcd.print("pour valid");
+        
+        delay(100);
+        valeur_bouton  = analogRead(A0);
+        
+        
+    
+        if (valeur_bouton ==205 or valeur_bouton ==203 or valeur_bouton ==204) {
+      couleur = 0;
+      EEPROM.put(2, couleur);
+      delay(100);
+    }
+    if (valeur_bouton == 405 or valeur_bouton == 402 or valeur_bouton == 401) {
+      couleur = 1;
+      EEPROM.put(2, couleur);
+      delay(100);
+    }
+        lcd.clear();
+        lcd.setCursor(0,1);
+        if (couleur == 0) {
+        lcd.print("YEL R");
+        
+      }
+      if (couleur == 1) {
+        lcd.print("BLU L");
+        
+      }
+    }
+    
+      else{
+         
+        etat_reglage_couleur = false;
+      }
+    }
+  }
+
+
+
+
   lcd.clear();
   
   pinMode(16, INPUT);
@@ -95,6 +160,9 @@ void setup() {
 
   // Configuration des moteurs en marche avant
  marche_avant();
+ if (attente <= 0 or attente > 85) {
+    attente = 85;
+  }
 
   // Compte à rebours de 5 secondes
   for (int i = attente; i > 0; i--) {
@@ -103,6 +171,15 @@ void setup() {
     lcd.print("Compte a rebours :");
     lcd.setCursor(0, 1);
     lcd.print(i);
+    lcd.setCursor(5, 1);
+    if (couleur == 0) {
+        lcd.print("|YEL R");
+        
+      }
+      if (couleur == 1) {
+        lcd.print("|BLU L");
+        
+      }
     delay(1000);
   }
 
@@ -123,24 +200,45 @@ void setup() {
   delay (300);
   arret();
   delay (500);
+ 
 
-  marche_avant;
-  analogWrite(borneENA, 0);
-  analogWrite(borneENB, 100);
-  delay (100);
-  analogWrite(borneENA, 0);
-  analogWrite(borneENB, 60);
-  delay (400);
-  arret();
-  delay (500);
+ //Virage à droite si jaune, virage à gauche si bleu
+ if (couleur ==0) { //jaune, virage à droite
+    marche_avant();
+    analogWrite(borneENA, 0);
+    analogWrite(borneENB, 100);
+    delay (100);
+    analogWrite(borneENA, 0);
+    analogWrite(borneENB, 60);
+    delay (300);
+    arret();
+    delay (500);
+ }
+
+ if (couleur ==1) { //jaune virage à droite
+    marche_avant();
+    analogWrite(borneENA, 100);
+    analogWrite(borneENB, 0);
+    delay (100);
+    analogWrite(borneENA, 60);
+    analogWrite(borneENB, 0);
+    delay (300);
+    arret();
+    delay (500);
+ }
 
   marche_avant();
   analogWrite(borneENA, 70);
   analogWrite(borneENB, 70);
+  delay(50);
+
+  analogWrite(borneENA, 40);
+  analogWrite(borneENB, 40);
+  delay(50);
   
-  delay(200);
-  analogWrite(borneENA, 20);
-  analogWrite(borneENB, 20);
+  analogWrite(borneENA, 30);
+  analogWrite(borneENB, 30);
+  
   
 
   
