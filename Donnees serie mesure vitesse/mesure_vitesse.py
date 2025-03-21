@@ -94,6 +94,7 @@ for i in range (len (liste_rps)):
     line = str(liste_temps[i]) +'\t'+ str(liste_rps[i])+'\n'
     lines.append(line)
 
-fichier = open('data_arduino.txt', 'w')
-fichier.writelines(lines) #création d'un nouveau fichier texte, indiquer le chemin si nécessaire
+# Utilisation de 'with open' pour assurer la fermeture du fichier
+with open('data_arduino.txt', 'w', encoding='utf-8') as fichier:
+    fichier.writelines(lines)  # création d'un nouveau fichier texte
 
