@@ -29,7 +29,7 @@ def animate(i):
 
 
     if len(listeDonnees) == 12 : # parfois des lignes de données vides peuvent être envoyées, il faut les "écarter"
-        accel = (float(listeDonnees[5].decode()))/16834 # après consulation des données, nous choisissons le 6 ème élément de listeDonnees, on convertit l'accélération en g
+        accel = (float(listeDonnees[5].decode()))/16384 # après consulation des données, nous choisissons le 6 ème élément de listeDonnees, on convertit l'accélération en g
 
         temps = (float(listeDonnees[2].decode()))/1000.0 # après consulation des données, nous choisissons le 1er élément de listeDonnees
 
