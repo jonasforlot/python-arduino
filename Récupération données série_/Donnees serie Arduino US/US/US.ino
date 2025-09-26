@@ -14,6 +14,8 @@ unsigned long temps;
  
 /* Constantes pour le timeout */
 const unsigned long MEASURE_TIMEOUT = 25000UL; // 25ms = ~8m à 340m/s, temps limite pour la mesure de distance
+/* REMARQUE. , si aucune mesure n'apparaît, désactiver le timeout, en désactivant la ligne précédente et en activant celle ci :*/
+ //long measure = pulseIn(ECHO_PIN, HIGH); 
 
 /* Vitesse du son dans l'air en mm/us */
 const float SOUND_SPEED = 340.0 / 1000;
@@ -95,3 +97,4 @@ else {
   /* Délai d'attente pour éviter d'afficher trop de résultats à la seconde */
   delay(50);
 }
+
