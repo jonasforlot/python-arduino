@@ -1,13 +1,13 @@
 int Moteur_sens1=4; // Pin 4 Arduino vers broche INPUT1 du L293D
-int Moteur_sens2=2; // Pin 5 Arduino vers broche INPUT2 du L293D
-int moteur1_PWM = 3; // Pin 10 Arduino PWM vers EN1 du L293D
+int Moteur_sens2=2; // Pin 2 Arduino vers broche INPUT2 du L293D
+int moteur1_PWM = 3; // Pin 3 Arduino PWM vers EN1 du L293D
 int PWM=255; // Variable PWM image de la vitesse
 
 void setup() {
   Serial.begin(9600); // Ouverture du port série et debit de communication fixé à 9600 bauds
   pinMode(moteur1_PWM, OUTPUT); // Pin 3 Arduino en sortie PWM
   pinMode(Moteur_sens1, OUTPUT); // Pin 4 Arduino en sortie digitale
-  pinMode(Moteur_sens2, OUTPUT); // Pin 5 Arduino en sortie digitale
+  pinMode(Moteur_sens2, OUTPUT); // Pin 2 Arduino en sortie digitale
   
 }
 
@@ -36,3 +36,4 @@ void loop() {
   analogWrite(moteur1_PWM,PWM); // Envoi du signal PWM sur la sortie analogique 10
   delay( 3000 ); // Attendre 3 secondes
 }
+
