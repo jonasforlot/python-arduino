@@ -4,7 +4,7 @@ const int directionA  = 12;
 const int directionB  = 13;
 const int rateA  = 3;
 const int rateB  = 11;
-float freq = 3; entre 3 et 6 Hz, // adapter la tension d'alimentation selon la vitesse
+float freq = 3; //entre 3 et 6 Hz,  adapter la tension d'alimentation selon la vitesse
 int microsBtwnSteps ;
 int vitesse=255 ;
 
@@ -92,3 +92,4 @@ void stpCCW(int nbstep) { /* function stpCCW */
     delayMicroseconds(microsBtwnSteps);
   }
 }
+
