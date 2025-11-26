@@ -4,7 +4,7 @@ const int directionA  = 12;
 const int directionB  = 13;
 const int rateA  = 3;
 const int rateB  = 11;
-float freq = 3; //entre 3 et 6 Hz,  adapter la tension d'alimentation selon la vitesse
+float freq = 3; //entre 3 et 6 Hz, adapter la tension d'alimentation selon la vitesse
 int microsBtwnSteps ;
 int vitesse=255 ;
 
@@ -25,7 +25,7 @@ void loop() {
 
 void testStepperMS() { /* function testStepperMS */
   //// Test stepper
-  Serial.println("Move stepper 10 step clockwise");
+  Serial.println("Move stepper 10 step clockwise"); //on reprend le programme d'un moteur pas à pas contrôlé par le motorshield, mais on le le fait tourner sans fin dans le même sens
   stpCW(50);
 //  delay(1000);
 //  Serial.println("Move stepper 2 step counter clockwise");
@@ -92,4 +92,3 @@ void stpCCW(int nbstep) { /* function stpCCW */
     delayMicroseconds(microsBtwnSteps);
   }
 }
-
