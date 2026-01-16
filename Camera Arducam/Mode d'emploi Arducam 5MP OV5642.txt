@@ -1,0 +1,34 @@
+Mode d'emploi Arducam 5MP OV5642 avec Arduino
+
+Brancher la camera à la carte Arduino comme indiqué sur le fichier PDF.
+
+Aller sur le site https://github.com/ArduCAM/Arduino.
+
+Cliquer le bouton vert Code,
+Downdload ZIP.
+
+Décompresser le fichier puis copier coller tous les dossiers dans C:\Program Files (x86)\Arduino\libraries.
+
+Dans C:\Program Files (x86)\Arduino\libraries\ArduCAM\memorysaver.h, s'assurer que la ligne 
+#define OV5642_MINI_5MP_PLUS 
+est bien activée (pas de // devant).
+
+Téléverser le code Arducam.ino (il s'agit d'un exemple de capture d'image pour une valeur de analogRead(A0) supérieure à 500).
+
+Ouvrir le logiciel ArduCAM_Host_v2 dans C:\Program Files (x86)\Arduino\libraries\ArduCAM\examples\host_app\ArduCAM_Host_V2.0_Windows.
+
+Sélectionner le bon port COM.
+
+Cliquer sur Open (la caméra devrait être détectée).
+
+Cocher la case Save image.
+
+Et définir un chemin de destination pour enregistrer les photos capturées.
+
+Puis cliquer sur Capture.
+
+A chaque détection (ici pour une valeur de analogRead(A0) supérieure à 500), les images seront capturées puis enregistrées dans le dossier.
+
+
+
+
